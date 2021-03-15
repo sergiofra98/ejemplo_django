@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <div>
+        <h4 class="float-left">Lista de Heroes</h4>
+        <a type="button" class="btn btn-success float-right" href="{%url 'heroe-create' %}">Create</a>
+    </div>
+
+    <div class="container-fluid row">
+        {% for heroe in heroes %}
+        <div class="col-lg-3 col-md-6 col-12 ">
+            <div class="border m-1 p-3 rounded">
+                <div>
+                    <b>Nombre: &nbsp;</b>
+                    <td>{{ heroe.nombre }}</td>
+                </div>
+                <div>
+                    <b>Alias: &nbsp;</b>
+                    <td>{{ heroe.alias }}</td>
+                </div>
+                <div>
+                    <b>Edad: &nbsp;</b>
+                    <td>{{ heroe.edad }}</td>
+                </div>
+                <div>
+                    <b>Sexo: &nbsp;</b>
+                    <td>{{ heroe.sexo }}</td>
+                </div>
+                <div>
+                    <b>Poder: &nbsp;</b>
+                    <td>{{ heroe.poder.nombre }}</td>
+                </div>
+                <div class="row">
+                    <div class="p-1 col-6">
+                        <a type="button" class="btn btn-warning w-100" href="/heroe-update/{{ heroe.id }}">Actualizar</a>
+                    </div>
+                    <div class="p-1 col-6">
+                        <a type="button" class="btn btn-danger w-100" href="/heroe-delete/{{ heroe.id }}">Borrar</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        {% endfor %}
+    </div>
+    <div class="m-1">
+        <a type="button" class="btn btn-warning" href="{%url 'poder-list' %}">Administrador de Poderes</a>
+    </div>
+</div>
+{% endblock %}

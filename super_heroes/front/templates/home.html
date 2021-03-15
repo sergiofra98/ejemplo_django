@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>CRUD de super heroes y super poderes</h4>
+    <div class="container">
+        <a type="button" class="btn btn-primary" href="{%url 'heroe-list' %}">Heroes</a>
+        <a type="button" class="btn btn-primary" href="{%url 'poder-list' %}">Poderes</a>
+    </div>
+</div>
+{% endblock %}
